@@ -28,7 +28,6 @@
         .page {
             padding: 40px 50px;
             background: white;
-            page-break-after: always;
             position: relative;
             border: 2px solid #8B1A1A;
             margin: 15px;
@@ -464,6 +463,28 @@
             .page {
                 padding: 0.5in;
                 border: 2px solid #8B1A1A;
+                margin: 0;
+                page-break-after: auto;
+                page-break-before: auto;
+                break-after: auto;
+                break-before: auto;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .page-break {
+                page-break-before: always;
+                break-before: page;
+            }
+
+            #page1 {
+                page-break-after: always;
+                break-after: page;
+            }
+
+            #page2 {
+                page-break-after: auto;
+                break-after: auto;
             }
 
             .button-group,
