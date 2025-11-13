@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeung Institute - Cosmetic Procedure Quote</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border: 4px solid #8B1A1A;
+        }
+
+        .page {
+            padding: 40px 50px;
+            background: white;
+            page-break-after: always;
+            position: relative;
+            border: 2px solid #8B1A1A;
+            margin: 15px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        /* Header styling */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-bottom: 3px solid #8B1A1A;
+        }
+
+        .institute-name {
+            font-size: 42px;
+            font-family: 'Edwardian Script ITC', 'Lucida Calligraphy', 'Monotype Corsiva', 'Apple Chancery', cursive;
+            color: #8B1A1A;
+            margin-bottom: 10px;
+            font-weight: normal;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .doctor-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+            letter-spacing: 0.5px;
+        }
+
+        .address-line {
+            font-size: 13px;
+            margin: 3px 0;
+            color: #333;
+        }
+
+        .web-info {
+            font-size: 12px;
+            margin: 3px 0;
+            color: #555;
+        }
+
+        .patient-name-label {
+            font-size: 14px;
+            margin-top: 25px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #8B1A1A;
+        }
+
+        .patient-name-field {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #8B1A1A;
+            font-size: 14px;
+            padding: 8px 0;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+
+        /* Introduction text */
+        .intro-text {
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 25px 0;
+            text-align: justify;
+            color: #333;
+        }
+
+        /* Tables */
+        .procedures-table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+            font-size: 13px;
+            border: 2px solid #8B1A1A;
+        }
+
+        .procedures-table th {
+            background: #8B1A1A;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #8B1A1A;
+            font-size: 14px;
+        }
+
+        .procedures-table td {
+            padding: 8px;
+            border: 1px solid #8B1A1A;
+        }
+
+        .procedures-table input {
+            width: 100%;
+            border: none;
+            font-size: 13px;
+            padding: 4px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+
+        .procedures-table input.procedure-amount {
+            text-align: right;
+            color: #8B1A1A;
+        }
+
+        .section-header {
+            background: #8B1A1A;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 20px;
+            border-radius: 3px;
+        }
+
+        .financial-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .financial-row label {
+            flex: 1;
+        }
+
+        .financial-row input {
+            width: 180px;
+            border: none;
+            border-bottom: 2px solid #8B1A1A;
+            text-align: right;
+            padding: 5px 8px;
+            font-size: 13px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+            color: #8B1A1A;
+        }
+
+        .total-line {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #8B1A1A;
+        }
+
+        .total-line span {
+            margin-right: 15px;
+        }
+
+        .total-line input {
+            width: 180px;
+            border: none;
+            border-bottom: 3px solid #8B1A1A;
+            text-align: right;
+            padding: 5px 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #8B1A1A !important;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+        
+        .total-line span {
+            font-weight: bold;
+        }
+
+        /* Signature section */
+        .signature-section {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        .signature-field {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .signature-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #8B1A1A;
+        }
+
+        .signature-field input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #8B1A1A;
+            padding: 8px 0;
+            font-size: 13px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            font-size: 11px;
+            margin-top: 25px;
+            line-height: 1.6;
+            color: #555;
+            font-style: italic;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 50px;
+            font-size: 11px;
+            color: #8B1A1A;
+            font-weight: bold;
+        }
+
+        /* Page 2 specific styles */
+        .checkbox-line {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .checkbox-line input[type="checkbox"] {
+            margin-right: 12px;
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #8B1A1A;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .payment-row label {
+            flex: 1;
+        }
+
+        .payment-row input[type="text"] {
+            width: 150px;
+            border: none;
+            border-bottom: 2px solid #8B1A1A;
+            padding: 5px 8px;
+            font-size: 13px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+            text-align: right;
+            color: #8B1A1A;
+        }
+        
+        .payment-row input[type="date"] {
+            border: none;
+            border-bottom: 2px solid #8B1A1A;
+            padding: 5px 8px;
+            font-size: 13px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+
+        .payable-section {
+            margin-top: 25px;
+            font-size: 13px;
+            line-height: 2;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #8B1A1A;
+        }
+
+        /* Button styles */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-top: 3px solid #8B1A1A;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: 2px solid #8B1A1A;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+
+        .btn-print {
+            background: #8B1A1A;
+            color: white;
+        }
+
+        .btn-print:hover {
+            background: #6B0A0A;
+            transform: translateY(-2px);
+        }
+
+        .btn-notes {
+            background: white;
+            color: #8B1A1A;
+        }
+
+        .btn-notes:hover {
+            background: #8B1A1A;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-save {
+            background: white;
+            color: #8B1A1A;
+        }
+
+        .btn-save:hover {
+            background: #8B1A1A;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Notes Page Styles */
+        .notes-page {
+            display: none;
+            background: white;
+            padding: 40px;
+        }
+
+        .notes-page.active {
+            display: block;
+        }
+
+        .notes-header {
+            background: #8B1A1A;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin: -40px -40px 35px -40px;
+            border-bottom: 4px solid #6B0A0A;
+        }
+
+        .notes-header h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .notes-header p {
+            font-size: 15px;
+        }
+
+        .notes-section {
+            margin-bottom: 30px;
+        }
+
+        .notes-section h3 {
+            background: #8B1A1A;
+            color: white;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 3px;
+        }
+
+        .notes-section label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #8B1A1A;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: 2px solid #8B1A1A;
+            border-radius: 5px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+            font-size: 13px;
+            resize: vertical;
+        }
+
+        .notes-section input[type="text"],
+        .notes-section input[type="date"],
+        .notes-section select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #8B1A1A;
+            border-radius: 5px;
+            font-size: 13px;
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                border: 3px solid #8B1A1A;
+            }
+
+            .page {
+                padding: 0.5in;
+                border: 2px solid #8B1A1A;
+            }
+
+            .button-group,
+            .notes-page,
+            .btn {
+                display: none !important;
+            }
+
+            input, textarea, select {
+                border: none !important;
+                border-bottom: 1px solid #8B1A1A !important;
+            }
+
+            .header {
+                border-bottom: 2px solid #8B1A1A !important;
+            }
+
+            @page {
+                margin: 0.5in;
+                size: letter;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 1000;">
+        <div style="width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #8B1A1A; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+        <p style="text-align: center; margin-top: 15px; font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;">Processing...</p>
+    </div>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading.active {
+            display: block !important;
+        }
+    </style>
+
+    <div class="container">
+        <!-- Page 1 -->
+        <div class="page" id="page1">
+            <div class="header">
+                <div class="institute-name">Yeung Institute</div>
+                <div class="doctor-name">Cecil S.T. Yeung, MD FACS</div>
+                <div class="address-line">1103 Banks St.</div>
+                <div class="address-line">Houston TX 77006</div>
+                <div class="address-line">Phone: 713.795.4885</div>
+                <div class="address-line">Fax: 713.795.0502</div>
+                <div class="web-info">www.yeunginstitute.com</div>
+            </div>
+
+            <div class="patient-name-label">Patient Name:</div>
+            <input type="text" class="patient-name-field" id="patientName">
+
+            <div class="patient-name-label" style="margin-top: 15px;">Date:</div>
+            <input type="date" class="patient-name-field" id="patientDate">
+
+            <div style="font-style: italic; font-size: 12px; margin-top: 20px; color: #8B1A1A;">
+                This quote is valid until: <input type="date" id="quoteValidUntil" style="border: none; border-bottom: 2px solid #8B1A1A; padding: 5px; font-size: 12px; font-family: 'Georgia', 'Garamond', 'Times New Roman', serif; font-style: italic;">
+            </div>
+
+            <div class="intro-text">
+                Thank you for your interest in the Yeung Institute. Our aim is to provide a comprehensive and informative 
+                consultation. Listed below are the procedures discussed during your office consultation.
+            </div>
+
+            <div class="section-header">Surgeon's Fee</div>
+            <table class="procedures-table">
+                <thead>
+                    <tr>
+                        <th style="width: 45%;">Dr. Cecil Yeung Procedure(s):</th>
+                        <th style="width: 25%;">Est. Time</th>
+                        <th style="width: 30%;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="proceduresBody">
+                    <tr>
+                        <td><input type="text" class="procedure-name"></td>
+                        <td><input type="text" class="procedure-time"></td>
+                        <td><input type="text" class="procedure-amount" onchange="calculateTotals()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="procedure-name"></td>
+                        <td><input type="text" class="procedure-time"></td>
+                        <td><input type="text" class="procedure-amount" onchange="calculateTotals()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="procedure-name"></td>
+                        <td><input type="text" class="procedure-time"></td>
+                        <td><input type="text" class="procedure-amount" onchange="calculateTotals()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="procedure-name"></td>
+                        <td><input type="text" class="procedure-time"></td>
+                        <td><input type="text" class="procedure-amount" onchange="calculateTotals()"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="procedure-name"></td>
+                        <td><input type="text" class="procedure-time"></td>
+                        <td><input type="text" class="procedure-amount" onchange="calculateTotals()"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="financial-row" style="margin-bottom: 5px;">
+                <label style="flex: 0 0 auto; min-width: 250px;">Subtotal:</label>
+                <input type="text" id="subtotal" readonly style="width: 150px;">
+            </div>
+            <div class="financial-row" style="margin-bottom: 5px;">
+                <label style="flex: 0 0 auto; min-width: 250px;">Discount If Applicable: <input type="text" id="discountReason" placeholder="Enter reason" style="border: none; border-bottom: 1px solid #8B1A1A; width: 150px; font-size: 11px; font-style: italic; padding: 3px; margin-left: 5px;"></label>
+                <input type="text" id="discount" onchange="calculateTotals()" style="width: 150px;">
+            </div>
+            <div class="financial-row" style="margin-bottom: 10px;">
+                <label style="flex: 0 0 auto; min-width: 250px;">Total Surgeon's Fee:</label>
+                <input type="text" id="totalSurgeonFee" readonly style="width: 150px; font-weight: bold;">
+            </div>
+
+            <div class="section-header">Supplies</div>
+            <div class="financial-row" style="margin-bottom: 5px;">
+                <label style="flex: 0 0 auto; min-width: 250px;">Description of Supplies:</label>
+                <input type="text" id="suppliesDescription" placeholder="Enter supplies details" style="width: 400px;">
+            </div>
+            <div class="financial-row" style="margin-bottom: 10px;">
+                <label style="flex: 0 0 auto; min-width: 250px;">Amount:</label>
+                <input type="text" id="supplies" onchange="calculateTotals()" style="width: 150px;">
+            </div>
+
+            <div class="section-header">Total Surgeon and Supplies</div>
+            <div class="financial-row" style="margin-bottom: 10px;">
+                <label style="flex: 0 0 auto; min-width: 250px; font-weight: bold;">Combined Total:</label>
+                <input type="text" id="surgeonSuppliesTotal" readonly style="width: 150px; font-weight: bold;">
+            </div>
+
+            <div class="section-header">Facility Fee - University Surgery Center</div>
+            <div class="financial-row" style="margin-bottom: 10px;">
+                <label style="flex: 0 0 auto; min-width: 250px;">Amount:</label>
+                <input type="text" id="facilityAmount" onchange="calculateTotals()" style="width: 150px;">
+            </div>
+
+            <div class="total-line" style="margin-top: 25px; font-size: 16px;">
+                <span>Surgery Total for Surgeon and Facility:</span>
+                <input type="text" id="grandTotal" readonly style="font-size: 16px; border-bottom: 3px double #8B1A1A; color: #8B1A1A; font-weight: bold;">
+            </div>
+
+            <div class="signature-section">
+                <div class="signature-field">
+                    <label>Patient Signature:</label>
+                    <input type="text" id="patientSig1">
+                </div>
+                <div class="signature-field" style="flex: 0.5;">
+                    <label>Date:</label>
+                    <input type="date" id="date1">
+                </div>
+            </div>
+
+            <div class="signature-section" style="margin-top: 15px;">
+                <div class="signature-field">
+                    <label>Yeung Institute:</label>
+                    <input type="text" id="yeungRep1">
+                </div>
+                <div class="signature-field" style="flex: 0.5;">
+                    <label>Date:</label>
+                    <input type="date" id="yeungDate1">
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                By signing below, you are not committing to surgery, you are simply acknowledging 
+                that you have discussed the above procedures with Dr. Yeung in a formal consultation setting and that a representative 
+                of The Yeung Institute has informed you of the usual and customary charges associated with each procedure.<br><br>
+                Disclaimer: This document does not constitute a contract when transmitted via e-mail or facsimile. It becomes contract 
+                only when both pages 1 and 2 are signed by all parties listed, a deposit is applied and a surgery date is booked.
+            </div>
+
+            <div class="page-number">Page 1/2</div>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page page-break" id="page2">
+            <div class="section-header">PAYMENT POLICY</div>
+
+            <div class="checkbox-line">
+                <input type="checkbox" id="check1">
+                <label for="check1">Prior to booking of surgery, our office requires a minimum of 20% of the surgeon's fee 
+                non-refundable down payment which guarantees your surgical date.</label>
+            </div>
+
+            <div class="checkbox-line">
+                <input type="checkbox" id="check2">
+                <label for="check2">Full payment of the above procedure(s) is required at the pre-operative visit or one 
+                week prior to surgery.</label>
+            </div>
+
+            <div class="checkbox-line">
+                <input type="checkbox" id="check3">
+                <label for="check3">Patient is responsible for all fees related to "touch up" procedures, if any.</label>
+            </div>
+
+            <div class="checkbox-line">
+                <input type="checkbox" id="check4">
+                <label for="check4">The fees quoted above include two months of complimentary post-operative visits. After that, the surgeon's fee of $100 per visit will be applied. If post-operative photos are taken, the visit fee will be waived.</label>
+            </div>
+
+            <div class="checkbox-line">
+                <input type="checkbox" id="check6">
+                <label for="check6">Procedure time is estimated to approximate facility and anesthesia fees. If the procedure(s) extend beyond the estimated time, additional fees may apply.</label>
+            </div>
+
+            <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-left: 4px solid #8B1A1A; font-size: 13px; line-height: 1.7;">
+                <strong>Anesthesia Fee:</strong> Anesthesia estimates can be obtained directly by the patient from the anesthesiology group based on the number of hours listed for the procedure. Please contact the anesthesiology group to arrange for this estimate and payment.
+            </div>
+
+            <div style="margin-top: 25px;">
+                <label style="font-weight: bold; font-size: 13px; color: #8B1A1A; margin-bottom: 8px; display: block;">Additional Payment Policies:</label>
+                <textarea id="additionalPaymentPolicies" placeholder="Enter any additional payment policies or notes..." style="width: 100%; min-height: 80px; padding: 10px; border: 2px solid #8B1A1A; border-radius: 5px; font-family: 'Georgia', 'Garamond', 'Times New Roman', serif; font-size: 12px; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-top: 35px; font-size: 13px; line-height: 1.7; font-weight: 500;">
+                I understand the procedural information listed above. If a deposit is to be applied, I agree to the terms of the non-refundable payment policy.
+            </div>
+
+            <div class="signature-section" style="margin-top: 20px;">
+                <div class="signature-field">
+                    <label>Patient Signature:</label>
+                    <input type="text" id="patientSig2">
+                </div>
+                <div class="signature-field" style="flex: 0.5;">
+                    <label>Date:</label>
+                    <input type="date" id="date2">
+                </div>
+            </div>
+
+            <div class="signature-section" style="margin-top: 15px;">
+                <div class="signature-field">
+                    <label>Yeung Institute Representative:</label>
+                    <input type="text" id="yeungRep2">
+                </div>
+                <div class="signature-field" style="flex: 0.5;">
+                    <label>Date:</label>
+                    <input type="date" id="yeungDate2">
+                </div>
+            </div>
+
+            <div class="payment-row" style="margin-top: 20px;">
+                <label>Date of Surgery:</label>
+                <input type="date" id="surgeryDate" style="width: 200px;">
+            </div>
+
+            <div class="section-header" style="margin-top: 30px;">PAYMENT TRACKING</div>
+
+            <div class="payment-row">
+                <label style="display: inline-block; width: 200px;">Total Surgeon's Fee:</label>
+                <input type="text" id="paymentTotalFee" style="width: 120px;">
+            </div>
+            <div class="payment-row">
+                <label style="display: inline-block; width: 200px;">Total Supplies:</label>
+                <input type="text" id="paymentTotalSupplies" style="width: 120px;">
+            </div>
+            
+            <div class="payment-row" style="margin-top: 20px;">
+                <label style="display: inline-block; width: 200px;">Deposit:</label>
+                <input type="text" id="deposit20" style="width: 120px;">
+                <label style="display: inline-block; width: 80px; margin-left: 15px;">Paid On:</label>
+                <input type="date" id="depositDate" style="width: 140px;">
+                <label style="display: inline-block; width: 140px; margin-left: 15px;">Form of Payment:</label>
+                <input type="text" id="depositPaymentForm" placeholder="Check/Card/Cash" style="width: 150px;">
+            </div>
+            
+            <div class="payment-row" style="margin-top: 15px;">
+                <label style="display: inline-block; width: 200px;">Balance Due:</label>
+                <input type="text" id="balanceDue" style="width: 120px;">
+                <label style="display: inline-block; width: 80px; margin-left: 15px;">Paid On:</label>
+                <input type="date" id="balanceDate" style="width: 140px;">
+                <label style="display: inline-block; width: 140px; margin-left: 15px;">Form of Payment:</label>
+                <input type="text" id="balancePaymentForm" placeholder="Check/Card/Cash" style="width: 150px;">
+            </div>
+            
+            <div class="payment-row" style="margin-top: 15px;">
+                <label style="display: inline-block; width: 200px;">Facility Fee Due:</label>
+                <input type="text" id="paymentFacilityFee" style="width: 120px;">
+                <label style="display: inline-block; width: 80px; margin-left: 15px;">Paid On:</label>
+                <input type="date" id="facilityDate" style="width: 140px;">
+                <label style="display: inline-block; width: 140px; margin-left: 15px;">Form of Payment:</label>
+                <input type="text" id="facilityPaymentForm" placeholder="Check/Card/Cash" style="width: 150px;">
+            </div>
+
+            <div style="margin-top: 25px;">
+                <label style="font-weight: bold; font-size: 13px; color: #8B1A1A; margin-bottom: 8px; display: block;">Additional Payment Notes:</label>
+                <textarea id="additionalPaymentNotes" placeholder="Enter any additional payment notes or instructions..." style="width: 100%; min-height: 60px; padding: 10px; border: 2px solid #8B1A1A; border-radius: 5px; font-family: 'Georgia', 'Garamond', 'Times New Roman', serif; font-size: 12px; resize: vertical;"></textarea>
+            </div>
+
+            <div class="payable-section">
+                <div style="font-weight: bold; margin-bottom: 12px; color: #8B1A1A; font-size: 14px;">Payable To:</div>
+                <div>Surgeon's Fee: <span style="display: inline-block; width: 100px;"></span>Cecil S.T. Yeung, MD, FACS & Associates</div>
+                <div>Facility Fee: <span style="display: inline-block; width: 100px;"></span>University Surgery Center</div>
+            </div>
+
+            <div class="disclaimer" style="margin-top: 30px;">
+                Disclaimer: This document does not constitute a contract when transmitted via e-mail or facsimile. It becomes contract 
+                only when both pages 1 and 2 are signed by all parties listed, a deposit is applied and a surgery date is booked.
+            </div>
+
+            <div class="page-number">Page 2/2</div>
+        </div>
+
+        <!-- Button Group -->
+        <div class="button-group">
+            <button class="btn btn-print" onclick="printQuote()">🖨️ Print Quote</button>
+            <button class="btn btn-notes" onclick="showNotes()">📝 Office Notes (Not Printed)</button>
+            <button class="btn btn-save" onclick="saveData()">💾 Save Data</button>
+            <button class="btn btn-save" onclick="saveAsHTML()">📄 Save as HTML</button>
+            <button class="btn btn-save" onclick="saveAsPDF()">📑 Save as PDF</button>
+            <button class="btn btn-save" onclick="publishToDatabase()">🗄️ Publish to Database</button>
+        </div>
+
+        <!-- Notes Page (Office Use Only) -->
+        <div class="notes-page" id="notesPage">
+            <div class="notes-header">
+                <h2>Office Notes - Internal Use Only</h2>
+                <p>This page will NOT be printed and is for office records only</p>
+            </div>
+
+            <div class="notes-section">
+                <h3>Internal Assessment Notes</h3>
+                <label>Staff Notes / Assessment:</label>
+                <textarea id="staffNotes" placeholder="Enter internal staff notes, patient assessment, observations..."></textarea>
+            </div>
+
+            <div class="notes-section">
+                <h3>Medical History / Contraindications</h3>
+                <textarea id="medicalNotes" placeholder="Medical history, allergies, medications, contraindications..."></textarea>
+            </div>
+
+            <div class="notes-section">
+                <h3>Follow-Up Information</h3>
+                <div class="notes-grid">
+                    <div>
+                        <label>Follow-Up Date:</label>
+                        <input type="date" id="followUpDate">
+                    </div>
+                    <div>
+                        <label>Status:</label>
+                        <select id="followUpStatus">
+                            <option value="">Select Status</option>
+                            <option value="pending">Pending Decision</option>
+                            <option value="scheduled">Surgery Scheduled</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="follow-up">Needs Follow-Up</option>
+                        </select>
+                    </div>
+                </div>
+                <label style="margin-top: 15px;">Follow-Up Notes:</label>
+                <textarea id="followUpNotes" placeholder="Follow-up actions, patient communication, scheduling notes..." style="min-height: 100px;"></textarea>
+            </div>
+
+            <div class="notes-section">
+                <h3>Financial Notes</h3>
+                <textarea id="financialNotes" placeholder="Payment arrangements, insurance notes, special considerations..." style="min-height: 100px;"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-save" onclick="saveNotesPDF()">💾 Save Notes as PDF</button>
+                <button class="btn btn-print" onclick="showQuote()">← Back to Quote</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Format currency input
+        function formatCurrency(input) {
+            let value = input.value.replace(/[$,]/g, '');
+            if (value === '' || isNaN(value)) return;
+            
+            const num = parseFloat(value);
+            input.value = '$' + num.toFixed(2);
+        }
+
+        // Add currency formatting to all money inputs
+        function setupCurrencyFormatting() {
+            // Procedure amounts
+            document.querySelectorAll('.procedure-amount').forEach(input => {
+                input.addEventListener('blur', function() {
+                    formatCurrency(this);
+                    calculateTotals();
+                });
+            });
+
+            // Financial inputs
+            const moneyFields = ['discount', 'supplies', 'facilityAmount', 'anesthesiaFee'];
+            moneyFields.forEach(id => {
+                const elem = document.getElementById(id);
+                if (elem) {
+                    elem.addEventListener('blur', function() {
+                        formatCurrency(this);
+                        calculateTotals();
+                    });
+                }
+            });
+        }
+
+        // Calculate totals
+        function calculateTotals() {
+            let subtotal = 0;
+            const amounts = document.querySelectorAll('.procedure-amount');
+            amounts.forEach(amt => {
+                const val = parseFloat(amt.value.replace(/[$,]/g, '')) || 0;
+                subtotal += val;
+            });
+
+            document.getElementById('subtotal').value = '$' + subtotal.toFixed(2);
+
+            const discount = parseFloat(document.getElementById('discount').value.replace(/[$,]/g, '')) || 0;
+            const totalSurgeonFee = subtotal - discount;
+            document.getElementById('totalSurgeonFee').value = '$' + totalSurgeonFee.toFixed(2);
+
+            const supplies = parseFloat(document.getElementById('supplies').value.replace(/[$,]/g, '')) || 0;
+
+            // Calculate combined surgeon and supplies total
+            const surgeonSuppliesTotal = totalSurgeonFee + supplies;
+            document.getElementById('surgeonSuppliesTotal').value = '$' + surgeonSuppliesTotal.toFixed(2);
+
+            const facility = parseFloat(document.getElementById('facilityAmount').value.replace(/[$,]/g, '')) || 0;
+
+            const grandTotal = totalSurgeonFee + supplies + facility;
+            document.getElementById('grandTotal').value = '$' + grandTotal.toFixed(2);
+
+            // Update page 2 totals
+            document.getElementById('paymentTotalFee').value = '$' + totalSurgeonFee.toFixed(2);
+            document.getElementById('paymentTotalSupplies').value = '$' + supplies.toFixed(2);
+            document.getElementById('paymentFacilityFee').value = '$' + facility.toFixed(2);
+
+            const deposit = totalSurgeonFee * 0.20;
+            document.getElementById('deposit20').value = '$' + deposit.toFixed(2);
+
+            const balance = totalSurgeonFee - deposit;
+            document.getElementById('balanceDue').value = '$' + balance.toFixed(2);
+        }
+
+        // Print quote
+        function printQuote() {
+            window.print();
+        }
+
+        // Show notes page
+        function showNotes() {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.querySelector('.button-group').style.display = 'none';
+            document.getElementById('notesPage').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Show quote
+        function showQuote() {
+            document.getElementById('notesPage').classList.remove('active');
+            document.getElementById('page1').style.display = 'block';
+            document.getElementById('page2').style.display = 'block';
+            document.querySelector('.button-group').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            const data = {
+                patientName: document.getElementById('patientName').value,
+                patientDate: document.getElementById('patientDate').value,
+                quoteValidUntil: document.getElementById('quoteValidUntil').value,
+                procedures: [],
+                subtotal: document.getElementById('subtotal').value,
+                discount: document.getElementById('discount').value,
+                discountReason: document.getElementById('discountReason').value,
+                totalSurgeonFee: document.getElementById('totalSurgeonFee').value,
+                suppliesDescription: document.getElementById('suppliesDescription').value,
+                supplies: document.getElementById('supplies').value,
+                totalSupplies: document.getElementById('totalSupplies').value,
+                facilityAmount: document.getElementById('facilityAmount').value,
+                anesthesiaFee: document.getElementById('anesthesiaFee').value,
+                grandTotal: document.getElementById('grandTotal').value,
+                patientSig1: document.getElementById('patientSig1').value,
+                date1: document.getElementById('date1').value,
+                yeungRep1: document.getElementById('yeungRep1').value,
+                yeungDate1: document.getElementById('yeungDate1').value,
+                checkboxes: {
+                    check1: document.getElementById('check1').checked,
+                    check2: document.getElementById('check2').checked,
+                    check3: document.getElementById('check3').checked,
+                    check4: document.getElementById('check4').checked,
+                    check5: document.getElementById('check5').checked,
+                    check6: document.getElementById('check6').checked
+                },
+                patientSig2: document.getElementById('patientSig2').value,
+                date2: document.getElementById('date2').value,
+                yeungRep2: document.getElementById('yeungRep2').value,
+                yeungDate2: document.getElementById('yeungDate2').value,
+                additionalPaymentPolicies: document.getElementById('additionalPaymentPolicies').value,
+                surgeryDate: document.getElementById('surgeryDate').value,
+                depositDueDate: document.getElementById('depositDueDate').value,
+                depositDate: document.getElementById('depositDate').value,
+                depositPaymentForm: document.getElementById('depositPaymentForm').value,
+                balanceDueDate: document.getElementById('balanceDueDate').value,
+                balanceDate: document.getElementById('balanceDate').value,
+                balancePaymentForm: document.getElementById('balancePaymentForm').value,
+                facilityDueDate: document.getElementById('facilityDueDate').value,
+                facilityDate: document.getElementById('facilityDate').value,
+                facilityPaymentForm: document.getElementById('facilityPaymentForm').value,
+                anesthesiaDueDate: document.getElementById('anesthesiaDueDate').value,
+                anesthesiaDate: document.getElementById('anesthesiaDate').value,
+                anesthesiaPaymentForm: document.getElementById('anesthesiaPaymentForm').value,
+                anesthesiaPhone: document.getElementById('anesthesiaPhone').value,
+                additionalPaymentNotes: document.getElementById('additionalPaymentNotes').value,
+                staffNotes: document.getElementById('staffNotes').value,
+                medicalNotes: document.getElementById('medicalNotes').value,
+                followUpDate: document.getElementById('followUpDate').value,
+                followUpStatus: document.getElementById('followUpStatus').value,
+                followUpNotes: document.getElementById('followUpNotes').value,
+                financialNotes: document.getElementById('financialNotes').value
+            };
+
+            // Save procedures
+            const procNames = document.querySelectorAll('.procedure-name');
+            const procTimes = document.querySelectorAll('.procedure-time');
+            const procAmounts = document.querySelectorAll('.procedure-amount');
+            for (let i = 0; i < procNames.length; i++) {
+                data.procedures.push({
+                    name: procNames[i].value,
+                    time: procTimes[i].value,
+                    amount: procAmounts[i].value
+                });
+            }
+
+            localStorage.setItem('yeungQuote', JSON.stringify(data));
+            alert('✅ Data saved successfully!');
+        }
+
+        // Load data from localStorage
+        function loadData() {
+            const saved = localStorage.getItem('yeungQuote');
+            if (!saved) return;
+
+            const data = JSON.parse(saved);
+
+            document.getElementById('patientName').value = data.patientName || '';
+            document.getElementById('patientDate').value = data.patientDate || '';
+            document.getElementById('quoteValidUntil').value = data.quoteValidUntil || '';
+            document.getElementById('discount').value = data.discount || '';
+            document.getElementById('discountReason').value = data.discountReason || '';
+            document.getElementById('suppliesDescription').value = data.suppliesDescription || '';
+            document.getElementById('supplies').value = data.supplies || '';
+            document.getElementById('facilityAmount').value = data.facilityAmount || '';
+            document.getElementById('anesthesiaFee').value = data.anesthesiaFee || '';
+            document.getElementById('patientSig1').value = data.patientSig1 || '';
+            document.getElementById('date1').value = data.date1 || '';
+            document.getElementById('yeungRep1').value = data.yeungRep1 || '';
+            document.getElementById('yeungDate1').value = data.yeungDate1 || '';
+
+            if (data.checkboxes) {
+                document.getElementById('check1').checked = data.checkboxes.check1 || false;
+                document.getElementById('check2').checked = data.checkboxes.check2 || false;
+                document.getElementById('check3').checked = data.checkboxes.check3 || false;
+                document.getElementById('check4').checked = data.checkboxes.check4 || false;
+                document.getElementById('check5').checked = data.checkboxes.check5 || false;
+                document.getElementById('check6').checked = data.checkboxes.check6 || false;
+            }
+
+            document.getElementById('patientSig2').value = data.patientSig2 || '';
+            document.getElementById('date2').value = data.date2 || '';
+            document.getElementById('yeungRep2').value = data.yeungRep2 || '';
+            document.getElementById('yeungDate2').value = data.yeungDate2 || '';
+            document.getElementById('additionalPaymentPolicies').value = data.additionalPaymentPolicies || '';
+            document.getElementById('surgeryDate').value = data.surgeryDate || '';
+            document.getElementById('depositDueDate').value = data.depositDueDate || '';
+            document.getElementById('depositDate').value = data.depositDate || '';
+            document.getElementById('depositPaymentForm').value = data.depositPaymentForm || '';
+            document.getElementById('balanceDueDate').value = data.balanceDueDate || '';
+            document.getElementById('balanceDate').value = data.balanceDate || '';
+            document.getElementById('balancePaymentForm').value = data.balancePaymentForm || '';
+            document.getElementById('facilityDueDate').value = data.facilityDueDate || '';
+            document.getElementById('facilityDate').value = data.facilityDate || '';
+            document.getElementById('facilityPaymentForm').value = data.facilityPaymentForm || '';
+            document.getElementById('anesthesiaDueDate').value = data.anesthesiaDueDate || '';
+            document.getElementById('anesthesiaDate').value = data.anesthesiaDate || '';
+            document.getElementById('anesthesiaPaymentForm').value = data.anesthesiaPaymentForm || '';
+            document.getElementById('anesthesiaPhone').value = data.anesthesiaPhone || '';
+            document.getElementById('additionalPaymentNotes').value = data.additionalPaymentNotes || '';
+            document.getElementById('staffNotes').value = data.staffNotes || '';
+            document.getElementById('medicalNotes').value = data.medicalNotes || '';
+            document.getElementById('followUpDate').value = data.followUpDate || '';
+            document.getElementById('followUpStatus').value = data.followUpStatus || '';
+            document.getElementById('followUpNotes').value = data.followUpNotes || '';
+            document.getElementById('financialNotes').value = data.financialNotes || '';
+
+            // Load procedures
+            if (data.procedures) {
+                const procNames = document.querySelectorAll('.procedure-name');
+                const procTimes = document.querySelectorAll('.procedure-time');
+                const procAmounts = document.querySelectorAll('.procedure-amount');
+                for (let i = 0; i < data.procedures.length && i < procNames.length; i++) {
+                    procNames[i].value = data.procedures[i].name || '';
+                    procTimes[i].value = data.procedures[i].time || '';
+                    procAmounts[i].value = data.procedures[i].amount || '';
+                }
+            }
+
+            calculateTotals();
+        }
+
+        // Save notes as PDF
+        async function saveNotesPDF() {
+            const element = document.getElementById('notesPage');
+            const opt = {
+                margin: 0.5,
+                filename: `Office-Notes-${document.getElementById('patientName').value || 'patient'}-${new Date().toISOString().split('T')[0]}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            try {
+                await html2pdf().set(opt).from(element).save();
+                alert('✅ Office notes saved as PDF successfully!');
+            } catch (error) {
+                alert('❌ Error saving PDF: ' + error.message);
+            }
+        }
+
+        // Save patient file as HTML
+        async function saveAsHTML() {
+            const patientName = document.getElementById('patientName').value || 'patient';
+            const date = new Date().toISOString().split('T')[0];
+            const filename = `Quote-${patientName.replace(/\s+/g, '-')}-${date}.html`;
+
+            // Clone the entire HTML document
+            const htmlContent = document.documentElement.outerHTML;
+
+            // Create a blob with the HTML content
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+
+            // Try using File System Access API for modern browsers
+            if ('showSaveFilePicker' in window) {
+                try {
+                    const handle = await window.showSaveFilePicker({
+                        suggestedName: filename,
+                        types: [{
+                            description: 'HTML Files',
+                            accept: { 'text/html': ['.html'] }
+                        }]
+                    });
+                    const writable = await handle.createWritable();
+                    await writable.write(blob);
+                    await writable.close();
+                    alert('✅ HTML file saved successfully!');
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        console.error('Error saving HTML:', error);
+                        // Fall back to download
+                        downloadBlob(blob, filename);
+                    }
+                }
+            } else {
+                // Fallback for browsers that don't support File System Access API
+                downloadBlob(blob, filename);
+            }
+        }
+
+        // Save patient file as PDF
+        async function saveAsPDF() {
+            const patientName = document.getElementById('patientName').value || 'patient';
+            const date = new Date().toISOString().split('T')[0];
+            const filename = `Quote-${patientName.replace(/\s+/g, '-')}-${date}.pdf`;
+
+            const loading = document.getElementById('loading');
+            if (loading) loading.classList.add('active');
+
+            // Create a container with both pages
+            const container = document.createElement('div');
+            container.style.background = 'white';
+            
+            // Clone both pages
+            const page1Clone = document.getElementById('page1').cloneNode(true);
+            const page2Clone = document.getElementById('page2').cloneNode(true);
+            
+            // Remove buttons from clones
+            page1Clone.querySelectorAll('.button-group').forEach(el => el.remove());
+            page2Clone.querySelectorAll('.button-group').forEach(el => el.remove());
+            
+            container.appendChild(page1Clone);
+            container.appendChild(page2Clone);
+
+            const opt = {
+                margin: 0.5,
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            try {
+                // Try using File System Access API for modern browsers
+                if ('showSaveFilePicker' in window) {
+                    try {
+                        const pdfBlob = await html2pdf().set(opt).from(container).outputPdf('blob');
+                        
+                        const handle = await window.showSaveFilePicker({
+                            suggestedName: filename,
+                            types: [{
+                                description: 'PDF Files',
+                                accept: { 'application/pdf': ['.pdf'] }
+                            }]
+                        });
+                        const writable = await handle.createWritable();
+                        await writable.write(pdfBlob);
+                        await writable.close();
+                        alert('✅ PDF saved successfully!');
+                    } catch (error) {
+                        if (error.name !== 'AbortError') {
+                            // Fall back to download
+                            await html2pdf().set(opt).from(container).save();
+                            alert('✅ PDF saved to downloads folder!');
+                        }
+                    }
+                } else {
+                    // Fallback for browsers that don't support File System Access API
+                    await html2pdf().set(opt).from(container).save();
+                    alert('✅ PDF saved to downloads folder!');
+                }
+            } catch (error) {
+                alert('❌ Error saving PDF: ' + error.message);
+                console.error('PDF Error:', error);
+            } finally {
+                if (loading) loading.classList.remove('active');
+            }
+        }
+
+        // Helper function to download blob
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            alert('✅ File saved to downloads folder!');
+        }
+
+        // Publish to Database - Export as JSON (appends to master file)
+        async function publishToDatabase() {
+            const patientName = document.getElementById('patientName').value || 'patient';
+            const date = new Date().toISOString().split('T')[0];
+            const timestamp = new Date().toISOString();
+            
+            // Validate required fields
+            if (!patientName || patientName === 'patient') {
+                alert('⚠️ Please enter a patient name before publishing to database.');
+                return;
+            }
+            
+            // Collect all procedures
+            const procedures = [];
+            const procNames = document.querySelectorAll('.procedure-name');
+            const procTimes = document.querySelectorAll('.procedure-time');
+            const procAmounts = document.querySelectorAll('.procedure-amount');
+            for (let i = 0; i < procNames.length; i++) {
+                if (procNames[i].value) {
+                    procedures.push({
+                        name: procNames[i].value,
+                        estimatedTime: procTimes[i].value,
+                        amount: procAmounts[i].value
+                    });
+                }
+            }
+
+            // Create structured database record
+            const databaseRecord = {
+                recordId: `YI-${Date.now()}`,
+                timestamp: timestamp,
+                exportDate: date,
+                
+                patientInfo: {
+                    name: document.getElementById('patientName').value,
+                    quoteDate: document.getElementById('patientDate').value,
+                    quoteValidUntil: document.getElementById('quoteValidUntil').value
+                },
+                
+                procedures: procedures,
+                
+                financials: {
+                    subtotal: document.getElementById('subtotal').value,
+                    discount: document.getElementById('discount').value,
+                    discountReason: document.getElementById('discountReason').value,
+                    totalSurgeonFee: document.getElementById('totalSurgeonFee').value,
+                    suppliesDescription: document.getElementById('suppliesDescription').value,
+                    suppliesAmount: document.getElementById('supplies').value,
+                    surgeonSuppliesTotal: document.getElementById('surgeonSuppliesTotal').value,
+                    facilityFee: document.getElementById('facilityAmount').value,
+                    grandTotal: document.getElementById('grandTotal').value
+                },
+                
+                paymentTracking: {
+                    deposit: {
+                        amount: document.getElementById('deposit20').value,
+                        paidOn: document.getElementById('depositDate').value,
+                        paymentForm: document.getElementById('depositPaymentForm').value
+                    },
+                    balance: {
+                        amount: document.getElementById('balanceDue').value,
+                        paidOn: document.getElementById('balanceDate').value,
+                        paymentForm: document.getElementById('balancePaymentForm').value
+                    },
+                    facilityFee: {
+                        amount: document.getElementById('paymentFacilityFee').value,
+                        paidOn: document.getElementById('facilityDate').value,
+                        paymentForm: document.getElementById('facilityPaymentForm').value
+                    }
+                },
+                
+                signatures: {
+                    page1: {
+                        patientSignature: document.getElementById('patientSig1').value,
+                        patientDate: document.getElementById('date1').value,
+                        instituteRep: document.getElementById('yeungRep1').value,
+                        instituteDate: document.getElementById('yeungDate1').value
+                    },
+                    page2: {
+                        patientSignature: document.getElementById('patientSig2').value,
+                        patientDate: document.getElementById('date2').value,
+                        instituteRep: document.getElementById('yeungRep2').value,
+                        instituteDate: document.getElementById('yeungDate2').value
+                    }
+                },
+                
+                surgeryDate: document.getElementById('surgeryDate').value,
+                
+                paymentPolicies: {
+                    check1: document.getElementById('check1').checked,
+                    check2: document.getElementById('check2').checked,
+                    check3: document.getElementById('check3').checked,
+                    check4: document.getElementById('check4').checked,
+                    check6: document.getElementById('check6').checked,
+                    additionalPolicies: document.getElementById('additionalPaymentPolicies').value,
+                    additionalNotes: document.getElementById('additionalPaymentNotes').value
+                },
+                
+                officeNotes: {
+                    staffNotes: document.getElementById('staffNotes').value,
+                    medicalNotes: document.getElementById('medicalNotes').value,
+                    followUpDate: document.getElementById('followUpDate').value,
+                    followUpStatus: document.getElementById('followUpStatus').value,
+                    followUpNotes: document.getElementById('followUpNotes').value,
+                    financialNotes: document.getElementById('financialNotes').value
+                }
+            };
+
+            // Try to append to existing database file
+            let allRecords = [];
+            let existingFileHandle = null;
+            
+            if ('showOpenFilePicker' in window) {
+                try {
+                    // Ask user if they want to append to existing database
+                    const appendToExisting = confirm('Do you have an existing Yeung Institute Database file?\n\nClick OK to append to existing database.\nClick Cancel to create a new database file.');
+                    
+                    if (appendToExisting) {
+                        // Let user select existing database file
+                        const [fileHandle] = await window.showOpenFilePicker({
+                            types: [{
+                                description: 'JSON Database File',
+                                accept: { 'application/json': ['.json'] }
+                            }]
+                        });
+                        
+                        existingFileHandle = fileHandle;
+                        const file = await fileHandle.getFile();
+                        const contents = await file.text();
+                        
+                        try {
+                            const parsed = JSON.parse(contents);
+                            // Check if it's an array or a single object
+                            allRecords = Array.isArray(parsed) ? parsed : [parsed];
+                        } catch (e) {
+                            alert('⚠️ Could not read existing database file. Creating new file.');
+                            allRecords = [];
+                        }
+                    }
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        console.log('User cancelled file selection');
+                    }
+                }
+            }
+            
+            // Add new record to array
+            allRecords.push(databaseRecord);
+            
+            // Create JSON with all records
+            const jsonString = JSON.stringify(allRecords, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const filename = 'Yeung-Institute-Database.json';
+
+            // Save the file
+            if ('showSaveFilePicker' in window) {
+                try {
+                    const handle = await window.showSaveFilePicker({
+                        suggestedName: filename,
+                        types: [{
+                            description: 'JSON Database File',
+                            accept: { 'application/json': ['.json'] }
+                        }]
+                    });
+                    const writable = await handle.createWritable();
+                    await writable.write(blob);
+                    await writable.close();
+                    
+                    const recordCount = allRecords.length;
+                    alert(`✅ Database updated successfully!\n\nFile: ${filename}\nTotal Records: ${recordCount}\nLatest Record: ${patientName}\n\nThis file contains all quotes and can be imported into any database system.`);
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        downloadBlob(blob, filename);
+                    }
+                }
+            } else {
+                // Fallback for older browsers
+                downloadBlob(blob, filename);
+            }
+        }
+
+        // Set default dates on initial load
+        function setDefaultDates() {
+            // Only set defaults if there's no saved data
+            const saved = localStorage.getItem('yeungQuote');
+            if (!saved) {
+                // Set today's date for patient date
+                const today = new Date();
+                document.getElementById('patientDate').valueAsDate = today;
+                
+                // Set quote valid until 30 days from today
+                const validUntil = new Date();
+                validUntil.setDate(today.getDate() + 30);
+                document.getElementById('quoteValidUntil').valueAsDate = validUntil;
+            }
+        }
+
+        // Load data on page load
+        window.addEventListener('load', function() {
+            loadData();
+            setDefaultDates();
+            setupCurrencyFormatting();
+        });
+
+        // Auto-save every 30 seconds
+        setInterval(saveData, 30000);
+    </script>
+</body>
+</html>
